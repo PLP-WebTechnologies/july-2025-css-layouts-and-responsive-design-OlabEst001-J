@@ -1,0 +1,62 @@
+/* General Reset */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* Grid Layout for Page */
+body {
+  display: grid;
+  grid-template-areas:
+    "header"
+    "nav"
+    "main"
+    "footer";
+  grid-template-rows: auto auto 1fr auto;
+  min-height: 100vh;
+}
+
+/* Areas */
+.header { grid-area: header; background: #007BFF; color: white; text-align: center; padding: 20px; }
+.nav { grid-area: nav; background: #eee; display: flex; justify-content: center; gap: 15px; padding: 10px; }
+.main { grid-area: main; display: grid; grid-template-columns: 2fr 1fr; gap: 20px; padding: 20px; }
+.content { background: #f9f9f9; padding: 15px; }
+.sidebar { background: #ddd; padding: 15px; }
+.footer { grid-area: footer; background: #333; color: white; text-align: center; padding: 15px; }
+
+/* Flexbox for Cards */
+.cards {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+.card {
+  flex: 1;
+  background: #ccc;
+  padding: 20px;
+  text-align: center;
+  border-radius: 5px;
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+  .main {
+    grid-template-columns: 1fr; /* stack content and sidebar */
+  }
+  .nav {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 600px) {
+  body {
+    grid-template-areas:
+      "header"
+      "nav"
+      "main"
+      "footer";
+  }
+  .cards {
+    flex-direction: column; /* stack cards vertically */
+  }
+}
